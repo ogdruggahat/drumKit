@@ -40,9 +40,21 @@ for(let i = 0;i<buttonArr;i++){
     }
   
   }
+  function buttonAnimation(key){
+   let pressedButton = document.querySelector("." + key)
+
+   pressedButton.classList.add("pressed")
+
+   setTimeout(function(){
+    pressedButton.classList.remove("pressed")
+   },100)
+   
+
+  }
 
   document.addEventListener("keydown",(event)=>{
     makeSound(event.key)
+    buttonAnimation(event.key)
   })
 
 
@@ -51,7 +63,7 @@ for(let i = 0;i<buttonArr;i++){
 
     var buttonInnerHtml = this.innerHTML
     makeSound(buttonInnerHtml)
-    
+    buttonAnimation(this.innerHTML)
   })
 
 }
